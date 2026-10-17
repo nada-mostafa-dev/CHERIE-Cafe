@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CHÉRIE Desserts & Salons</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ================= HEADER & NAVIGATION ================= -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <span class="sub-logo">✦ CHÉRIE</span>
+        <span class="main-logo">CHÉRIE</span>
+        <span class="tagline">DESSERTS & SALONS</span>
+      </div>
+
+      <nav class="nav-links">
+        <a href="#home" class="active">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="#about">About Us</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="cart-icon" id="cartToggle">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="cart-badge" id="cartBadgeCount">2</span>
+        </div>
+        <button class="btn btn-primary" id="orderNowBtn">Order Now</button>
+        <div class="user-avatar">
+          <i class="fa-solid fa-user"></i>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= TASTING TRAY / CART SIDEBAR ================= -->
+  <div class="cart-sidebar-overlay" id="cartOverlay"></div>
+  <aside class="cart-sidebar open" id="cartSidebar">
+    <div class="cart-header">
+      <div class="cart-title">
+        <i class="fa-solid fa-bag-shopping"></i> Your Tasting Tray
+      </div>
+      <button class="close-cart" id="closeCart">&times;</button>
+    </div>
+
+    <div class="cart-body" id="cartItemsList">
+      <!-- Item 1 -->
+      <div class="cart-item" data-id="1">
+        <div class="cart-item-info">
+          <h4 class="cart-item-title">Strawberry Cheesecake</h4>
+          <p class="cart-item-price">EGP 160.00</p>
+        </div>
+        <div class="cart-item-controls">
+          <div class="qty-control">
+            <button class="btn-qty minus">-</button>
+            <span class="qty-val">1</span>
+            <button class="btn-qty plus">+</button>
+          </div>
+          <button class="btn-remove-item"><i class="fa-regular fa-trash-can"></i></button>
+        </div>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="cart-item" data-id="2">
+        <div class="cart-item-info">
+          <h4 class="cart-item-title">Iced Spanish Latte</h4>
+          <p class="cart-item-price">EGP 110.00</p>
+        </div>
+        <div class="cart-item-controls">
+          <div class="qty-control">
+            <button class="btn-qty minus">-</button>
+            <span class="qty-val">1</span>
+            <button class="btn-qty plus">+</button>
+          </div>
+          <button class="btn-remove-item"><i class="fa-regular fa-trash-can"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="cart-footer">
+      <div class="cart-note">
+        <i class="fa-regular fa-circle-check"></i> Complementary artisan gift box included
+      </div>
+      <div class="subtotal-row">
+        <span>Subtotal</span>
+        <span class="subtotal-price" id="cartSubtotal">EGP 270</span>
+      </div>
+      <button class="btn btn-primary btn-block">Proceed to Checkout &rarr;</button>
+      <p class="delivery-estimate">Estimated delivery in Zamalek & Downtown within 35 mins</p>
+    </div>
+  </aside>
+
+  <!-- ================= HERO SECTION ================= -->
+  <section class="hero-section" id="home">
+    <div class="container hero-container">
+      <div class="hero-content">
+        <div class="badge-tag">✦ HANDCRAFTED WITH LOVE • EST. 2024</div>
+        <h1 class="hero-title">A Little Sweetness,<br><em>A Lot of Joy.</em></h1>
+        <p class="hero-desc">
+          Discover beautifully crafted artisanal desserts, velvety Belgian chocolate creations, and signature iced infusions made to sweeten your everyday moments.
+        </p>
+        <div class="hero-buttons">
+          <a href="#menu" class="btn btn-primary">Explore Our Menu &rarr;</a>
+          <button class="btn btn-secondary" id="heroOrderBtn"><i class="fa-solid fa-bag-shopping"></i> Order Now</button>
+        </div>
+        <div class="hero-features">
+          <div class="feature-item"><i class="fa-solid fa-bread-slice"></i> Fresh Daily Pastries</div>
+          <div class="feature-item"><i class="fa-solid fa-apple-whole"></i> Hand-Picked Berries</div>
+          <div class="feature-item"><i class="fa-solid fa-mug-hot"></i> Single-Origin Brews</div>
+        </div>
+      </div>
+
+      <div class="hero-image-card">
+        <div class="chef-badge">✦ CHEF'S PICK</div>
+        <img src="image/generating_screen..._image_2.png">
+        <div class="hero-card-overlay">
+          <div class="rating-stars">★★★★★ <span>4.9</span></div>
+          <h3>CHÉRIE Signature Spread</h3>
+          <p>Belgian Fudge, Golden Waffle & Strawberry Cream</p>
+          <button class="add-circle-btn" onclick="addToCart('CHÉRIE Signature Spread', 240)"><i class="fa-solid fa-plus"></i></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= EXPLORE BY CRAVING ================= -->
+  <section class="cravings-section">
+    <div class="container">
+      <div class="section-header-inline">
+        <div>
+          <span class="sub-heading">CURATED COLLECTIONS</span>
+          <h2 class="section-title">Explore by Craving</h2>
+        </div>
+        <p class="section-subtitle-right">
+          Six exquisite dessert & beverage ateliers prepared fresh each morning by our master confectioners.
+        </p>
+      </div>
+
+      <div class="cravings-grid">
+        <div class="craving-card">
+          <div class="icon-box"><i class="fa-solid fa-cake-candles"></i></div>
+          <h3>Cakes & Tarts</h3>
+          <p>14 Creations</p>
+        </div>
+        <div class="craving-card">
+          <div class="icon-box"><i class="fa-solid fa-stroopwafel"></i></div>
+          <h3>Waffles & Crepes</h3>
+          <p>8 Creations</p>
+        </div>
+        <div class="craving-card">
+          <div class="icon-box"><i class="fa-solid fa-cookie"></i></div>
+          <h3>Viennoiserie</h3>
+          <p>12 Creations</p>
+        </div>
+        <div class="craving-card">
+          <div class="icon-box"><i class="fa-solid fa-cookie-bite"></i></div>
+          <h3>Cookies & Fudge</h3>
+          <p>9 Creations</p>
+        </div>
+        <div class="craving-card">
+          <div class="icon-box"><i class="fa-solid fa-mug-saucer"></i></div>
+          <h3>Specialty Coffee</h3>
+          <p>16 Creations</p>
+        </div>
+        <div class="craving-card">
+          <div class="icon-box"><i class="fa-solid fa-glass-water"></i></div>
+          <h3>Cold Infusions</h3>
+          <p>11 Creations</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CHÉRIE FAVORITES ================= -->
+  <section class="favorites-section" id="menu">
+    <div class="container">
+      <div class="center-header">
+        <span class="capsule-tag">CHÉRIE FAVORITES</span>
+        <h2 class="section-title">Made to Make You Smile</h2>
+        <p class="section-desc">The daily treats our guests fall in love with at first taste. Baked and handcrafted with passion.</p>
+      </div>
+
+      <div class="products-grid">
+        <!-- Card 1 -->
+        <div class="product-card">
+          <div class="card-img-wrapper">
+            <span class="product-badge pink-badge">TOP SELLER</span>
+            <img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=600&q=80" alt="Strawberry Cheesecake">
+          </div>
+          <div class="card-body">
+            <div class="card-title-row">
+              <h3>Strawberry Cheesecake</h3>
+              <span class="price">EGP 160</span>
+            </div>
+            <p class="card-text">Velvety New York style cheesecake layered with house-made ruby strawberry compote and crushed...</p>
+            <div class="card-footer-row">
+              <span class="meta-tag"><i class="fa-regular fa-snowflake"></i> Served Chilled</span>
+              <button class="btn btn-small" onclick="addToCart('Strawberry Cheesecake', 160)">+ Add</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="product-card">
+          <div class="card-img-wrapper">
+            <span class="product-badge dark-badge">CHEF'S SIGNATURE</span>
+            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80" alt="Chocolate Fudge Cake">
+          </div>
+          <div class="card-body">
+            <div class="card-title-row">
+              <h3>Chocolate Fudge Cake</h3>
+              <span class="price">EGP 145</span>
+            </div>
+            <p class="card-text">Multi-layered rich Belgian dark chocolate sponge drenched in warm silk ganache and topped with hand...</p>
+            <div class="card-footer-row">
+              <span class="meta-tag"><i class="fa-solid fa-fire"></i> Warm Ganache</span>
+              <button class="btn btn-small" onclick="addToCart('Chocolate Fudge Cake', 145)">+ Add</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="product-card">
+          <div class="card-img-wrapper">
+            <span class="product-badge soft-pink-badge">BRUNCH SPECIAL</span>
+            <img src="https://images.unsplash.com/photo-1562376552-0d160a2f238d?auto=format&fit=crop&w=600&q=80" alt="Strawberry Waffle">
+          </div>
+          <div class="card-body">
+            <div class="card-title-row">
+              <h3>Strawberry Waffle</h3>
+              <span class="price">EGP 180</span>
+            </div>
+            <p class="card-text">Crisp golden Brussels waffle dusted with sweet local strawberries, vanilla bean Chantilly cream, and organic...</p>
+            <div class="card-footer-row">
+              <span class="meta-tag"><i class="fa-solid fa-wand-magic-sparkles"></i> Made Fresh</span>
+              <button class="btn btn-small" onclick="addToCart('Strawberry Waffle', 180)">+ Add</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="product-card">
+          <div class="card-img-wrapper">
+            <span class="product-badge blue-badge">CUSTOMER FAV</span>
+            <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=600&q=80" alt="Iced Spanish Latte">
+          </div>
+          <div class="card-body">
+            <div class="card-title-row">
+              <h3>Iced Spanish Latte</h3>
+              <span class="price">EGP 110</span>
+            </div>
+            <p class="card-text">Double shot specialty espresso poured over velvety sweetened condensed milk, cinnamon dust, and...</p>
+            <div class="card-footer-row">
+              <span class="meta-tag"><i class="fa-solid fa-glass-water"></i> Chilled Pour</span>
+              <button class="btn btn-small" onclick="addToCart('Iced Spanish Latte', 110)">+ Add</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROMO BANNER ================= -->
+  <section class="promo-banner">
+    <div class="container promo-container">
+      <div class="promo-left">
+        <div class="promo-badge"><i class="fa-solid fa-ticket"></i> LIMITED-TIME DUET • CODE: CHERIEDUET</div>
+        <h2 class="promo-title">Your Sweet Moment, <em>For Less.</em></h2>
+        <p class="promo-desc">
+          Make everyday a little sweeter with CHÉRIE dessert and drink pairings. Pair any signature cake slice with an iced specialty beverage and enjoy 20% off every weekday morning until 11:00 AM.
+        </p>
+      </div>
+      <div class="promo-right">
+        <button class="btn btn-light">Claim 20% Morning Duet</button>
+        <a href="#menu" class="link-light">View Duet Combinations</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= OUR HERITAGE ================= -->
+  <section class="heritage-section" id="about">
+    <div class="container heritage-grid">
+      <div class="heritage-img-wrapper">
+        <img src="image/generating_screen..._image_7.png" alt="Chef Baking">
+        <div class="quote-overlay">
+          <p>“Baking is our love language, written in butter, berries, and quiet mornings.”</p>
+        </div>
+      </div>
+
+      <div class="heritage-content">
+        <span class="sub-heading">OUR HERITAGE</span>
+        <h2 class="section-title">A Little Love in Every Bite</h2>
+        <p class="heritage-text">
+          Born from a deep reverence for classical Parisian salon traditions and contemporary café hospitality, CHÉRIE was created as a sanctuary for the senses. Every creation begins with deliberate intention: small-batch baking, pristine temperature control, and uncompromised culinary ethics.
+        </p>
+
+        <div class="heritage-cards-grid">
+          <div class="mini-feature-card">
+            <div class="mini-icon"><i class="fa-solid fa-wheat-awn"></i></div>
+            <h4>Pure Ingredients</h4>
+            <p>Normandy butter, grand cru Belgian cacao, and pesticide-free berries harvested daily.</p>
+          </div>
+          <div class="mini-feature-card">
+            <div class="mini-icon"><i class="fa-solid fa-mortar-pestle"></i></div>
+            <h4>Artisanal Craft</h4>
+            <p>Zero shortcuts. Baked fresh in small batches every morning at 5:00 AM.</p>
+          </div>
+          <div class="mini-feature-card">
+            <div class="mini-icon"><i class="fa-regular fa-heart"></i></div>
+            <h4>Welcoming Haven</h4>
+            <p>Designed for slow conversations, laughter, notebook scribbles, and timeless company.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SEASONAL PATISSERIE ================= -->
+  <section class="seasonal-section">
+    <div class="container">
+      <div class="center-header">
+        <span class="sub-heading">SEASONAL PATISSERIE & INFUSIONS</span>
+        <h2 class="section-title">The Ones You'll Come Back For</h2>
+        <p class="section-desc">Select a collection below to filter our live salon creations and order directly to your table or home.</p>
+      </div>
+
+      <div class="filter-tabs">
+        <button class="tab-btn active" data-filter="all">All Creations</button>
+        <button class="tab-btn" data-filter="cakes">Signature Cakes</button>
+        <button class="tab-btn" data-filter="waffles">Waffles & Crepes</button>
+        <button class="tab-btn" data-filter="coffee">Specialty Coffee</button>
+        <button class="tab-btn" data-filter="sparklers">Milkshakes & Sparklers</button>
+      </div>
+
+      <div class="mini-products-grid">
+        <!-- Item 1 -->
+        <div class="mini-product-card" data-category="cakes">
+          <img src="https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=300&q=80" alt="Raspberry Rose Tart">
+          <div class="mini-product-info">
+            <div class="mini-header-row">
+              <h4>Raspberry Rose Tart</h4>
+              <span class="mini-price">EGP 135</span>
+            </div>
+            <p>Almond frangipane shell with rose diplomat cream, glazed raspberries.</p>
+            <button class="btn-text-add" onclick="addToCart('Raspberry Rose Tart', 135)">+ Add to order</button>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="mini-product-card" data-category="waffles">
+          <img src="https://images.unsplash.com/photo-1519676867240-f03562e64548?auto=format&fit=crop&w=300&q=80" alt="Pistachio Cream Crêpe">
+          <div class="mini-product-info">
+            <div class="mini-header-row">
+              <h4>Pistachio Cream Crêpe</h4>
+              <span class="mini-price">EGP 95</span>
+            </div>
+            <p>Lace-thin sweet French butter crêpe, fresh pistachio mousse.</p>
+            <button class="btn-text-add" onclick="addToCart('Pistachio Cream Crêpe', 95)">+ Add to order</button>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="mini-product-card" data-category="coffee">
+          <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=300&q=80" alt="Salted Caramel Macchiato">
+          <div class="mini-product-info">
+            <div class="mini-header-row">
+              <h4>Salted Caramel Macchiato</h4>
+              <span class="mini-price">EGP 90</span>
+            </div>
+            <p>Guatemala single origin, steamed Madagascar vanilla foam, sea salt drip.</p>
+            <button class="btn-text-add" onclick="addToCart('Salted Caramel Macchiato', 90)">+ Add to order</button>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="mini-product-card" data-category="sparklers">
+          <img src="https://images.unsplash.com/photo-1553787499-6f9133860278?auto=format&fit=crop&w=300&q=80" alt="Strawberry Dream Milkshake">
+          <div class="mini-product-info">
+            <div class="mini-header-row">
+              <h4>Strawberry Dream Milkshake</h4>
+              <span class="mini-price">EGP 115</span>
+            </div>
+            <p>Freshly churned strawberry gelato blended with whole milk and Madagascar vanilla.</p>
+            <button class="btn-text-add" onclick="addToCart('Strawberry Dream Milkshake', 115)">+ Add to order</button>
+          </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="mini-product-card" data-category="waffles">
+          <img src="https://images.unsplash.com/photo-1621236378699-8597faf6a176?auto=format&fit=crop&w=300&q=80" alt="Nutella & Banana Crêpe">
+          <div class="mini-product-info">
+            <div class="mini-header-row">
+              <h4>Nutella & Banana Crêpe</h4>
+              <span class="mini-price">EGP 110</span>
+            </div>
+            <p>Warm hand-spun crepe, generous hazelnut spread, caramelized bananas.</p>
+            <button class="btn-text-add" onclick="addToCart('Nutella & Banana Crêpe', 110)">+ Add to order</button>
+          </div>
+        </div>
+
+        <!-- Item 6 -->
+        <div class="mini-product-card" data-category="sparklers">
+          <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=300&q=80" alt="Passionfruit Iced Tea">
+          <div class="mini-product-info">
+            <div class="mini-header-row">
+              <h4>Passionfruit Iced Tea</h4>
+              <span class="mini-price">EGP 85</span>
+            </div>
+            <p>Tropical passionfruit pulp, botanical sparkling brew, garden mint tonic.</p>
+            <button class="btn-text-add" onclick="addToCart('Passionfruit Iced Tea', 85)">+ Add to order</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= MOMENTS AT CHÉRIE ================= -->
+   <section class="gallery-section" id="gallery">
+    <div class="container">
+      <div class="center-header">
+        <span class="sub-heading">VISUAL ARCHIVE</span>
+        <h2 class="section-title">Moments at CHÉRIE</h2>
+        <p class="section-desc">Glimpses of daily craft, dripping ganache, sun-lit tables, and cheerful gatherings.</p>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=500&q=80" alt="Bakery Display Counter"></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=500&q=80" alt="Pouring Chocolate Ganache"></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=500&q=80" alt="Outdoor Table Seating"></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=500&q=80" alt="Fresh Strawberries Bowl"></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ================= TESTIMONIALS ================= -->
+  <section class="testimonials-section">
+    <div class="container">
+      <div class="center-header">
+        <span class="sub-heading">TESTIMONIALS</span>
+        <h2 class="section-title">Sweet Words From Our Guests</h2>
+      </div>
+
+      <div class="testimonials-grid">
+        <!-- Card 1 -->
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">
+            “The Strawberry Cheesecake is unlike anything in Cairo. The house ruby compote has real tart fruit flavor rather than artificial syrup. Combined with their iced latte, it's absolute heaven.”
+          </p>
+          <div class="user-info">
+            <div class="avatar-circle">NF</div>
+            <div>
+              <h5 class="user-name">Nourhan Fadel</h5>
+              <p class="user-role">Food Critic & Dessert Patron</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">
+            “Their Iced Spanish Latte was the best recommendation I received all month. Sweetness is balanced to perfection and the presentation is pure Parisian elegance. CHÉRIE is our new team Friday ritual.”
+          </p>
+          <div class="user-info">
+            <div class="avatar-circle">TM</div>
+            <div>
+              <h5 class="user-name">Tarek El-Masry</h5>
+              <p class="user-role">Architectural Designer</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">
+            “Ordered a custom combination dessert box for my sister's bridal tea. The silk ribbon packaging and immaculate pistachio croissants made every guest pause. Unmatched pastry standards.”
+          </p>
+          <div class="user-info">
+            <div class="avatar-circle">LH</div>
+            <div>
+              <h5 class="user-name">Laila Hassan</h5>
+              <p class="user-role">Event Stylist</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT & LOCATION ================= -->
+  <section class="contact-section" id="contact">
+    <div class="container contact-grid">
+      <div class="contact-left">
+        <span class="sub-heading">VISIT THE SALON</span>
+        <h2 class="section-title">We'd Love to Welcome You</h2>
+        <p class="contact-desc">Step into our warm salon de thé for morning espresso, mid-day sweets, or evening celebration boxes.</p>
+
+        <div class="contact-info-cards">
+          <div class="info-card">
+            <i class="fa-solid fa-location-dot"></i>
+            <div>
+              <h5>Address</h5>
+              <p>21 Brazil Street, Zamalek, Cairo, Egypt</p>
+            </div>
+          </div>
+          <div class="info-card">
+            <i class="fa-regular fa-clock"></i>
+            <div>
+              <h5>Hours</h5>
+              <p>Sun – Thu: 08:00 – 23:30<br>Fri – Sat: 08:00 – Midnight</p>
+            </div>
+          </div>
+          <div class="info-card">
+            <i class="fa-solid fa-phone"></i>
+            <div>
+              <h5>Telephone</h5>
+              <p>+20 (2) 2736 - 0112</p>
+            </div>
+          </div>
+          <div class="info-card">
+            <i class="fa-regular fa-envelope"></i>
+            <div>
+              <h5>Email</h5>
+              <p>bonjour@cheriemoments.com</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="map-box">
+          <div class="map-pin-tag"><i class="fa-solid fa-location-dot"></i> CHÉRIE Zamalek Salon</div>
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13813.06429215433!2d31.21852445!3d30.05786515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x145840d2105e4fb3%3A0x2f8bc5b17cb12a52!2sZamalek%2C%20Cairo%20Governorate!5e0!3m2!1sen!2seg!4v1700000000000!5m2!1sen!2seg" 
+            width="100%" 
+            height="180" 
+            style="border:0; border-radius: 12px;" 
+            allowfullscreen="" 
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+
+      <div class="contact-right">
+        <div class="form-card">
+          <span class="sub-heading">CONNECT WITH US</span>
+          <h3>Reserve a Table or Inquire</h3>
+          <p class="form-desc">For weekend reservations, bespoke birthday cakes, or private salon hire, send our atelier concierge a message.</p>
+
+          <form id="inquiryForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Your Name</label>
+                <input type="text" placeholder="Camille Laurent" required>
+              </div>
+              <div class="form-group">
+                <label>Phone Number</label>
+                <input type="tel" placeholder="+20 100 000 0000" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Inquiry Type</label>
+              <select required>
+                <option value="">Salon Table Reservation</option>
+                <option value="custom-cake">Custom Birthday / Event Cake</option>
+                <option value="catering">Private Catering & Salon Hire</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Your Message</label>
+              <textarea placeholder="Tell us about your date, guest count, or special celebration wishes..." rows="4" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Send Atelier Request</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-col branding-col">
+        <h3 class="footer-logo">CHÉRIE</h3>
+        <p class="footer-tagline">HAUTE PÂTISSERIE & INFUSIONS</p>
+        <p class="footer-desc">
+          An artisanal Parisian salon in Cairo dedicated to handcrafted creations, seasonal Viennoiserie, and sculpted dessert craft.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Salon Hours</h4>
+        <p>Tuesday – Friday<br>08:00 – 19:30</p>
+        <p>Saturday – Sunday<br>09:00 – 21:00</p>
+        <p class="muted-note">Closed on Mondays for atelier preparation</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>The Atelier</h4>
+        <p>14 Rue des Petits-Champs<br>75002 Paris, France</p>
+        <p>+33 (0)1 42 68 00 00</p>
+        <p>bonjour@cherie-patisserie.com</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Ephemera</h4>
+        <ul class="footer-links">
+          <li><a href="#">Grand Tasting Menu</a></li>
+          <li><a href="#">The Tea Masters</a></li>
+          <li><a href="#">Visual Archive</a></li>
+          <li><a href="#">Private Salons & Events</a></li>
+        </ul>
+        <div class="social-icons">
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-container">
+        <p>© 2025 CHÉRIE Atelier & Salon de Thé. All culinary rights reserved.</p>
+        <div class="legal-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Tasting</a>
+          <a href="#">Allergen Directory</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+>
+  <script src="main.js"></script>
+</body>
+</html>
